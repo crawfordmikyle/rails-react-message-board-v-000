@@ -8,8 +8,10 @@ const getMessages = (messages) => {
 // Async Actions
 
 export const getMessagesFromApi = () => {
-  return fetch("/api/messages")
-    .then(responce => responce.json())
-    .then(messages => dispatch(getMessages(messages)))
-    .catch(error => console.log(error))
+  return dispatch => {
+    return fetch("/api/messages")
+      .then(responce => responce.json())
+      .then(messages => dispatch(getMessages(messages)))
+      .catch(error => console.log(error))
+  }
 }

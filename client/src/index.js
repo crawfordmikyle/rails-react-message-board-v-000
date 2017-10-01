@@ -11,7 +11,7 @@ import thunk from 'redux-thunk';
 import messagesReducer from './Reducers/messagesReducer'
 
 const rootReducer = combineReducers({
-  messagesReducer
+  messagesReducer,
 });
 
 const middleware = [thunk];
@@ -25,7 +25,7 @@ let store = createStore(
 ReactDOM.render(
 
   <Provider store={store}>
-    <Router>
+    <Router store={store}>
       <Route expact path="/" component={App}/>
     </Router>
   </Provider>
