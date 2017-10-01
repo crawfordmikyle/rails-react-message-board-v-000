@@ -9,7 +9,7 @@ class MessageListContainer extends Component{
   }
   render(){
     return(
-      <MessageList/>
+      <MessageList messages={this.props.messages}/>
     )
   }
 }
