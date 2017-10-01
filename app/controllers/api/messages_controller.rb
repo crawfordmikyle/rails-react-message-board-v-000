@@ -21,11 +21,22 @@ class Api::MessagesController < ApplicationController
   end
 
   def update
-
+    set_message
+    user = User.find_or_create_by(:name => params[:user_name])
+    if @message.user_id == user.id && @message.update(message_params)
+      render json: @message, status: 200
+    else
+      render json: {message: "woops something broke"}, status: 400
+    end
   end
 
   def destroy
-
+    set_message
+    if @message.delete
+      render json: {message: "message deleted"}, status: 200
+    else
+      render json: {message: "woops something broke"}, status: 400
+    end
   end
 
 private
