@@ -6,12 +6,18 @@ class Api::MessagesController < ApplicationController
     if messages
       render json: messages, status: 200
     else
-      render json: {message: "there are no messages"}
+      render json: {message: "there are no messages"}, status: 200
     end
   end
 
   def create
-    binding.pry
+    user = User.find_or_create_by(:name => params[:user_name])
+    message = user.messages.create(message_params)
+    if message
+      render json: message, status: 200
+    else
+      render json: {message: "woops something broke"}, status: 400
+    end
   end
 
   def update
