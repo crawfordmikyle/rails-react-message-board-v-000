@@ -8,8 +8,10 @@ import { Provider } from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import thunk from 'redux-thunk';
+import messagesReducer from './Reducers/messagesReducer'
 
 const rootReducer = combineReducers({
+  messagesReducer
 });
 
 const middleware = [thunk];
