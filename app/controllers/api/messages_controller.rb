@@ -1,3 +1,4 @@
+require 'pry'
 class Api::MessagesController < ApplicationController
 
   def index
@@ -10,7 +11,7 @@ class Api::MessagesController < ApplicationController
   end
 
   def create
-
+    binding.pry
   end
 
   def update
@@ -24,7 +25,7 @@ class Api::MessagesController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(title:,message_content:)
+    params.require(:message).permit(:title,:message_content)
   end
 
   def set_message
