@@ -26,7 +26,10 @@ ReactDOM.render(
 
   <Provider store={store}>
     <Router store={store}>
-      <Route expact path="/" component={App}/>
+      <div className="routes">
+        <Route exact path="/" component={App}/>
+        <Route path="/messages/" component={}/>
+      </div>
     </Router>
   </Provider>
 
