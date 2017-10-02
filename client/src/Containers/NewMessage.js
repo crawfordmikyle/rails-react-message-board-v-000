@@ -1,6 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-
+import {addMessagesToApi} from '../Actions/actions'
 class NewMessage extends Component {
   constructor(){
     super();
@@ -18,13 +18,19 @@ class NewMessage extends Component {
   }
 
   handleOnSubmit = (event) =>{
-
+    event.preventDefault();
+    this.props.addMessagesToApi(this.state)
+    this.setState({
+      user_name: '',
+      title: '',
+      message_content: '',
+    })
   }
 
   render(){
     return(
       <div>
-        <form>
+        <form onSubmit={(event)=>this.handleOnSubmit(event)}>
           <label>Name:</label>
           <input type="text" id="user_name" onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
@@ -41,4 +47,8 @@ class NewMessage extends Component {
   }
 }
 
-export default NewMessage
+const mapStateToProps = (state) =>({
+  messages: state.messagesReducer
+})
+
+export default connect(mapStateToProps,{addMessagesToApi})(NewMessage)

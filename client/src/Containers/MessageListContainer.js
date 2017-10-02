@@ -8,6 +8,7 @@ class MessageListContainer extends Component{
   componentDidMount(){
     this.props.getMessagesFromApi()
   }
+
   render(){
     return(
       <div>

@@ -2,6 +2,8 @@ import React from 'react'
 import {Link, Route} from 'react-router-dom'
 import Message from './Message'
 import NewMessage from '../Containers/NewMessage'
+import EditMessage from '../Containers/EditMessage'
+
 const MessageList = ({messages,match}) =>{
   const renderedMessages = messages.map((message)=>{
     return(
@@ -20,6 +22,7 @@ const MessageList = ({messages,match}) =>{
       <Link to="/messages/new">New Message</Link>
       <Route exact path="/messages/new" component={NewMessage}/>
       <Route exact path="/messages/:id" component={Message}/>
+      <Route exact path="/messages/:id/edit" component={EditMessage}/>
     </div>
   )
 }
