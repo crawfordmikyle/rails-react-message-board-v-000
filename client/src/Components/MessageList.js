@@ -1,9 +1,10 @@
 import React from 'react'
-import {Link} from 'react-router-dom'
-const MessageList = ({messages}) =>{
+import {Link, Route} from 'react-router-dom'
+import Message from './Message'
+const MessageList = ({messages,match}) =>{
   const renderedMessages = messages.map((message)=>{
     return(
-      <li>
+      <li key={message.id}>
       title:{message.title}
       <Link to={`/messages/${message.id}`} >See More</Link>
       </li>
@@ -15,6 +16,7 @@ const MessageList = ({messages}) =>{
       <ul>
       {renderedMessages}
       </ul>
+      <Route path="/messages/:id" component={Message}/>
     </div>
   )
 }

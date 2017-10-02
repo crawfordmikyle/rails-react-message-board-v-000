@@ -13,7 +13,7 @@ class Api::MessagesController < ApplicationController
   def create
     user = User.find_or_create_by(:name => params[:user_name])
     message = user.messages.create(message_params)
-    if message
+    if message.save
       render json: message, status: 200
     else
       render json: {message: "woops something broke"}, status: 400

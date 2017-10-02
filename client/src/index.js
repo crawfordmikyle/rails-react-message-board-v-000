@@ -6,7 +6,6 @@ import registerServiceWorker from './registerServiceWorker';
 
 import { Provider } from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
-import { BrowserRouter as Router, Route, Link } from 'react-router-dom';
 import thunk from 'redux-thunk';
 import messagesReducer from './Reducers/messagesReducer'
 
@@ -25,12 +24,7 @@ let store = createStore(
 ReactDOM.render(
 
   <Provider store={store}>
-    <Router store={store}>
-      <div className="routes">
-        <Route exact path="/" component={App}/>
-        <Route path="/messages/" component={}/>
-      </div>
-    </Router>
+    <App store={store}/>
   </Provider>
 
 ,document.getElementById('root'));
