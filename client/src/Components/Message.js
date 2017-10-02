@@ -13,9 +13,12 @@ const Message = ({message}) => {
 
 const mapStateToProps = (state, ownProps) => {
   const message = state.messagesReducer.find((m)=>m.id == ownProps.match.params.id)
-  return({
-    message
-  })
+  if(message){
+    return {message}
+  }
+  else{
+    return {message: {}}
+  }
 }
 
 
