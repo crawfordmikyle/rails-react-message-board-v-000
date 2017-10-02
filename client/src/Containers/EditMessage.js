@@ -1,13 +1,21 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 class EditMessage extends Component {
-  constructor(){
+  constructor({match,message}){
     super();
     this.state={
-      user_name: '',
       title: '',
       message_content: '',
     }
+  }
+
+  componentDidMount(){
+    console.log(this.props.message)
+    debugger
+    this.setState({
+      title: this.props.message.title,
+      message_content: this.props.message.message_content,
+    })
   }
 
   handleOnChange = (event) => {
@@ -20,7 +28,6 @@ class EditMessage extends Component {
     event.preventDefault();
     this.props.addMessagesToApi(this.state)
     this.setState({
-      user_name: '',
       title: '',
       message_content: '',
     })
@@ -35,10 +42,10 @@ class EditMessage extends Component {
           <input type="text" id="user_name" onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
           <label>Title:</label>
-          <input type="text" id="title" onChange={(event)=>this.handleOnChange(event)}/>
+          <input type="text" id="title" value={this.state.title} onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
           <label>Message:</label>
-          <textarea id="message_content" onChange={(event)=>this.handleOnChange(event)}></textarea>
+          <textarea id="message_content" value={this.state.message_content} onChange={(event)=>this.handleOnChange(event)}></textarea>
           <br/>
           <input type="submit"/>
         </form>
@@ -48,9 +55,10 @@ class EditMessage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const message = state.messagesReducer.find((m)=>m.id == ownProps.match.params.id)
+  const message = state.messagesReducer.find((message)=>(message.id == ownProps.match.params.id))
+  console.log(message)
   if(message){
-    return {message}
+    return {message: message}
   }
   else{
     return {message: {}}
