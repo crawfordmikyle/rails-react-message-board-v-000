@@ -13,6 +13,8 @@ export default function messagesReducer(state = [],action){
           return m
         }
       })
+    case 'DELETE_MESSAGE':
+      return state
     default:
       return state
   }
