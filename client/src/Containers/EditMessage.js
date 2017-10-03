@@ -1,27 +1,23 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+
 class EditMessage extends Component {
-  constructor({match,message}){
+  constructor({message}){
     super();
     this.state={
-      title: '',
-      message_content: '',
+      title: message.title,
+      message_content: message.message_content,
     }
-  }
-
-  componentDidMount(){
-    console.log(this.props.message)
-    debugger
-    this.setState({
-      title: this.props.message.title,
-      message_content: this.props.message.message_content,
-    })
   }
 
   handleOnChange = (event) => {
     this.setState({
       [event.target.id]:event.target.value
     })
+  }
+
+  componentDidMount(){
+    console.log(this.props.message)
   }
 
   handleOnSubmit = (event) =>{
@@ -55,8 +51,8 @@ class EditMessage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const message = state.messagesReducer.find((message)=>(message.id == ownProps.match.params.id))
-  console.log(message)
+  debugger
+  const message = state.messages.find((message)=>(message.id.toString() === ownProps.match.params.id))
   if(message){
     return {message: message}
   }

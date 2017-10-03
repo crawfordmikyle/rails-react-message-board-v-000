@@ -10,7 +10,7 @@ import thunk from 'redux-thunk';
 import messagesReducer from './Reducers/messagesReducer'
 
 const rootReducer = combineReducers({
-  messagesReducer,
+  messages: messagesReducer,
 });
 
 const middleware = [thunk];

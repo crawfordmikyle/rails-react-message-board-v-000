@@ -1,9 +1,8 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link,Route} from 'react-router-dom'
+import {Link} from 'react-router-dom'
 
 const Message = ({message,match}) => {
-  console.log(message)
   return(
     <div className="message">
       <h4>{message.title}</h4>
@@ -15,7 +14,7 @@ const Message = ({message,match}) => {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  const message = state.messagesReducer.find((m)=>m.id == ownProps.match.params.id)
+  const message = state.messages.find((m)=>(m.id.toString() === ownProps.match.params.id))
   if(message){
     return {message}
   }

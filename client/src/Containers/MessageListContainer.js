@@ -2,8 +2,7 @@ import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import MessageList from '../Components/MessageList'
 import {getMessagesFromApi} from '../Actions/actions'
-import {Route} from 'react-router-dom'
-import Message from '../Components/Message'
+
 class MessageListContainer extends Component{
   componentDidMount(){
     this.props.getMessagesFromApi()
@@ -19,7 +18,7 @@ class MessageListContainer extends Component{
 }
 
 const mapStateToProps = (state,ownProps) => {
-  return{messages: state.messagesReducer}
+  return{messages: state.messages}
 }
 
 export default connect(mapStateToProps,{getMessagesFromApi})(MessageListContainer)

@@ -32,13 +32,13 @@ class NewMessage extends Component {
       <div>
         <form onSubmit={(event)=>this.handleOnSubmit(event)}>
           <label>Name:</label>
-          <input type="text" id="user_name" onChange={(event)=>this.handleOnChange(event)}/>
+          <input type="text" id="user_name" value={this.state.user_name} onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
           <label>Title:</label>
-          <input type="text" id="title" onChange={(event)=>this.handleOnChange(event)}/>
+          <input type="text" id="title" value={this.state.title} onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
           <label>Message:</label>
-          <textarea id="message_content" onChange={(event)=>this.handleOnChange(event)}></textarea>
+          <textarea id="message_content" value={this.state.message_content} onChange={(event)=>this.handleOnChange(event)}></textarea>
           <br/>
           <input type="submit"/>
         </form>
@@ -48,7 +48,7 @@ class NewMessage extends Component {
 }
 
 const mapStateToProps = (state) =>({
-  messages: state.messagesReducer
+  messages: state.messages
 })
 
 export default connect(mapStateToProps,{addMessagesToApi})(NewMessage)
