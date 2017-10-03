@@ -28,12 +28,21 @@
 }
 
 .message{
-
+-webkit-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
+-moz-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
+box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
 }
 
 .header-img{
   width: 100%;
-  height: 70px;
-  background-image: url("http://loremflickr.com/320/240");
+  height: 200px;
+  background-image: url("./headerbg.jpg");
   background-color: green;
+
+}
+
+.navbar{
+  width: 100%;
+  height: 50;
+  background-color: #F8F8F8;
 }

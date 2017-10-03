@@ -9,6 +9,7 @@ const MessageList = ({messages,match}) =>{
     return(
       <li key={message.id}>
       title:{message.title}
+      <br/>
       <Link to={`/messages/${message.id}`} >See More</Link>
       </li>
     )

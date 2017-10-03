@@ -1,7 +1,6 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
 import {editMessageToApi} from '../Actions/actions'
-import { BrowserRouter } from 'react-router-dom'
 
 class EditMessage extends Component {
   constructor({message}){
@@ -38,7 +37,7 @@ class EditMessage extends Component {
 
   render(){
     return(
-      <div>
+      <div className="row">
         <h4>Edit Message</h4>
         <form onSubmit={(event)=>this.handleOnSubmit(event)}>
           <label>Title:</label>

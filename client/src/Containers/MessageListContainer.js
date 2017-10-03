@@ -10,7 +10,7 @@ class MessageListContainer extends Component{
 
   render(){
     return(
-      <div>
+      <div className="row">
         <MessageList messages={this.props.messages}/>
       </div>
     )

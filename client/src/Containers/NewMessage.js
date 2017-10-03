@@ -25,11 +25,12 @@ class NewMessage extends Component {
       title: '',
       message_content: '',
     })
+    this.props.history.push('/messages')
   }
 
   render(){
     return(
-      <div>
+      <div className="row">
         <form onSubmit={(event)=>this.handleOnSubmit(event)}>
           <label>Name:</label>
           <input type="text" id="user_name" value={this.state.user_name} onChange={(event)=>this.handleOnChange(event)}/>
