@@ -33,8 +33,9 @@ class Api::MessagesController < ApplicationController
 
   def destroy
     set_message
+    message_id = @message.id
     if @message.delete
-      render json: {message: "message deleted"}, status: 200
+      render json: {message: "message deleted", id: message_id}, status: 200
     else
       render json: {message: "woops something broke"}, status: 400
     end

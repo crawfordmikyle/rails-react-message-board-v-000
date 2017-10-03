@@ -82,7 +82,7 @@ export const deleteMessageToApi = (messageObj) => {
       body: JSON.stringify({message: messageObj})
     })
     .then(responce => responce.json())
-    .then(message => dispatch(editMessage(message)))
+    .then(message => dispatch(deleteMessage(message)))
     .catch(error => console.log(error))
   }
 }

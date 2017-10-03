@@ -1,12 +1,20 @@
 import React from 'react'
 import {connect} from 'react-redux'
+import {deleteMessageToApi} from '../Actions/actions'
 
-const DeleteMessage = ({message}) => {
+const DeleteMessage = ({message, deleteMessageToApi}) => {
+
+  const handleSubmit = (event) => {
+    event.preventDefault();
+    deleteMessageToApi(message)
+  }
+
   return(
     <div>
       <h4>Delete Message</h4>
       <h5>Are You Sure?</h5>
-      <form>
+      <form onSubmit={(event)=>handleSubmit(event)}>
+        <input type="submit" value="Delete Message"/>
       </form>
     </div>
   )
@@ -22,4 +30,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(DeleteMessage)
+export default connect(mapStateToProps,{deleteMessageToApi})(DeleteMessage)
