@@ -1,7 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
-import DeleteMessage from './DeleteMessage'
+import {Link,Route} from 'react-router-dom'
 
 const Message = ({message,match}) => {
   return(
@@ -10,7 +9,7 @@ const Message = ({message,match}) => {
       <hr/>
       <p>{message.message_content}</p>
       <Link to={`/messages/${message.id}/edit`}>Edit</Link>
-      <DeleteMessage/>
+      <Link to={`/messages/${message.id}/delete`}>Delete Message</Link>
     </div>
   )
 }
