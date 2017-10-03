@@ -22,11 +22,12 @@ class Api::MessagesController < ApplicationController
 
   def update
     set_message
-    user = User.find_or_create_by(:name => params[:user_name])
-    if @message.user_id == user.id && @message.update(message_params)
+    user = User.find_by(:id => params[:user_id])
+    if @message.update(message_params)
+      @message.save
       render json: @message, status: 200
     else
-      render json: {message: "woops something broke"}, status: 400
+      render json: {message: "only the user who created the message can update it"}, status: 400
     end
   end
 

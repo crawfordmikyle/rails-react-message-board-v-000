@@ -5,6 +5,7 @@ class EditMessage extends Component {
   constructor({message}){
     super();
     this.state={
+      user_id: message.user_id,
       title: message.title,
       message_content: message.message_content,
     }
@@ -24,6 +25,7 @@ class EditMessage extends Component {
     event.preventDefault();
     this.props.addMessagesToApi(this.state)
     this.setState({
+      id: '',
       title: '',
       message_content: '',
     })
@@ -34,9 +36,6 @@ class EditMessage extends Component {
       <div>
         <h4>Edit Message</h4>
         <form onSubmit={(event)=>this.handleOnSubmit(event)}>
-          <label>Name:</label>
-          <input type="text" id="user_name" onChange={(event)=>this.handleOnChange(event)}/>
-          <br/>
           <label>Title:</label>
           <input type="text" id="title" value={this.state.title} onChange={(event)=>this.handleOnChange(event)}/>
           <br/>
@@ -51,7 +50,6 @@ class EditMessage extends Component {
 }
 
 const mapStateToProps = (state, ownProps) => {
-  debugger
   const message = state.messages.find((message)=>(message.id.toString() === ownProps.match.params.id))
   if(message){
     return {message: message}
