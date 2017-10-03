@@ -1,10 +1,13 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
+import {editMessageToApi} from '../Actions/actions'
+import { BrowserRouter } from 'react-router-dom'
 
 class EditMessage extends Component {
   constructor({message}){
     super();
     this.state={
+      id: message.id,
       user_id: message.user_id,
       title: message.title,
       message_content: message.message_content,
@@ -23,12 +26,14 @@ class EditMessage extends Component {
 
   handleOnSubmit = (event) =>{
     event.preventDefault();
-    this.props.addMessagesToApi(this.state)
+    this.props.editMessageToApi(this.state)
     this.setState({
       id: '',
+      user_id: '',
       title: '',
       message_content: '',
     })
+    this.props.history.push('/messages')
   }
 
   render(){
@@ -59,4 +64,4 @@ const mapStateToProps = (state, ownProps) => {
   }
 }
 
-export default connect(mapStateToProps)(EditMessage)
+export default connect(mapStateToProps,{editMessageToApi})(EditMessage)
