@@ -30,7 +30,7 @@ class NewMessage extends Component {
 
   render(){
     return(
-      <div className="row form-container">
+      <div className="row message">
           <form onSubmit={(event)=>this.handleOnSubmit(event)}>
             <label>Name:</label>
             <input type="text" id="user_name" value={this.state.user_name} onChange={(event)=>this.handleOnChange(event)}/>

@@ -3,23 +3,21 @@ import {Link, Route, Switch} from 'react-router-dom'
 import Message from './Message'
 import NewMessage from '../Containers/NewMessage'
 import EditMessage from '../Containers/EditMessage'
-import DeleteMessage from './DeleteMessage'
+import DeleteMessage from '../Containers/DeleteMessage'
+import MessageListCard from './MessageListCard'
+
 const MessageList = ({messages,match}) =>{
   const renderedMessages = messages.map((message)=>{
     return(
-      <li key={message.id}>
-      title:{message.title}
-      <br/>
-      <Link to={`/messages/${message.id}`} >See More</Link>
-      </li>
+      <MessageListCard messageData={message} key={message.id}/>
     )
   })
   return(
     <div>
       <h4>Messages</h4>
-      <ul>
+      <div>
       {renderedMessages}
-      </ul>
+      </div>
       <Link to="/messages/new">New Message</Link>
       <Switch>
         <Route exact path="/messages/new" component={NewMessage}/>

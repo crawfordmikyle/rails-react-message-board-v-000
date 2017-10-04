@@ -37,7 +37,7 @@ class EditMessage extends Component {
 
   render(){
     return(
-      <div className="row">
+      <div className="row message">
         <h4>Edit Message</h4>
         <form onSubmit={(event)=>this.handleOnSubmit(event)}>
           <label>Title:</label>
