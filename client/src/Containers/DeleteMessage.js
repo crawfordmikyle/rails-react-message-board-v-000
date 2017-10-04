@@ -8,9 +8,9 @@ class DeleteMessage extends Component {
   }
 
   handleSubmit = (event) => {
-    debugger
     event.preventDefault();
     this.props.deleteMessageToApi(this.props.message)
+    this.props.history.push('/messages')
   }
 
   render(){

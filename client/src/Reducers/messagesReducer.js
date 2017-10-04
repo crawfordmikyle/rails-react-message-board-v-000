@@ -15,7 +15,6 @@ export default function messagesReducer(state = [],action){
       })
     case 'DELETE_MESSAGE':
       return state.filter((m)=>{return m.id !== action.message.id})
-
     default:
       return state
   }
