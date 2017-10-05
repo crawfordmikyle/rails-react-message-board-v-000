@@ -12,7 +12,7 @@ const Message = ({message,match}) => {
       <Link to={`/messages/${message.id}/edit`} className="button">Edit</Link>
       <Link to={`/messages/${message.id}/delete`} className="button">Delete Message</Link>
       <Link to={`/messages/${message.id}/comments`} className="button">Show Comments</Link>
-      <Route exact path={`/messages/${message.id}/comments`} component={CommentListContainer}/>
+      <Route exact path={`/messages/${message.id}/comments`} render={() => <CommentListContainer msgId={message.id}/>}/>
     </div>
   )
 }

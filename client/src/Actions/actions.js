@@ -45,6 +45,16 @@ export const getMessagesFromApi = () => {
   }
 }
 
+
+export const getCommentsFromApi = (messageId) => {
+  return dispatch => {
+    return fetch(`/api/messages/${messageId}/comments`)
+      .then(responce => responce.json())
+      .then(comments => dispatch(getComments(comments)))
+      .catch(error => console.log(error))
+  }
+}
+
 export const addMessagesToApi = (messageObj) => {
   return dispatch => {
     return fetch("/api/messages",{
