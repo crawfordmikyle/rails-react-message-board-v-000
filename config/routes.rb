@@ -3,6 +3,8 @@ Rails.application.routes.draw do
     resources :messages
   end
 
-  get '/api/messages/:id/comments', to: 'api/comments#show'
+  get '/api/messages/:message_id/comments', to: 'api/comments#show'
+  post '/api/messages/:message_id/comments', to: 'api/comments#create'
+  delete '/api/messages/:message_id/comments/:comment_id', to: 'api/comments#destroy'
 
 end
