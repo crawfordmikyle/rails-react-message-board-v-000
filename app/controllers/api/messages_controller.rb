@@ -10,6 +10,16 @@ class Api::MessagesController < ApplicationController
     end
   end
 
+  def show
+    set_message
+    comments = @message.comments
+    if @message
+      render json: {message: @message, comments: comments}, status: 200
+    else
+      render json: {message: 'message not found'}, status: 404
+    end
+  end
+
   def create
     user = User.find_or_create_by(:name => params[:user_name])
     message = user.messages.create(message_params)

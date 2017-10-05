@@ -98,6 +98,6 @@ const getComments = (messageComments) => {
 
 // Comments Async Actions
 
-export const getMessageComments = () => {
-  return dispatch
+export const getMessageComments = (message) => {
+  return null
 }
