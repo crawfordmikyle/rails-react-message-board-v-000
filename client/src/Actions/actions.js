@@ -27,6 +27,7 @@ const deleteMessage = (message) => {
   })
 }
 
+// Comment Actions
 const getComments = (comments) => {
   return({
     type: 'GET_COMMENTS',
@@ -36,21 +37,28 @@ const getComments = (comments) => {
 
 // Async Actions
 
-export const getMessagesFromApi = () => {
-  return dispatch => {
-    return fetch("/api/messages")
-      .then(responce => responce.json())
-      .then(messages => dispatch(getMessages(messages)))
-      .catch(error => console.log(error))
-  }
-}
-
-
+//Comment Async Actions
 export const getCommentsFromApi = (messageId) => {
   return dispatch => {
     return fetch(`/api/messages/${messageId}/comments`)
       .then(responce => responce.json())
       .then(comments => dispatch(getComments(comments)))
+      .catch(error => console.log(error))
+  }
+}
+
+export const addCommentToMessage = (comment) => {
+  return({
+    type:'ADD_COMMENT'
+  })
+}
+
+// Message Async Actions
+export const getMessagesFromApi = () => {
+  return dispatch => {
+    return fetch("/api/messages")
+      .then(responce => responce.json())
+      .then(messages => dispatch(getMessages(messages)))
       .catch(error => console.log(error))
   }
 }
