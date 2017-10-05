@@ -27,6 +27,13 @@ const deleteMessage = (message) => {
   })
 }
 
+const getComments = (comments) => {
+  return({
+    type: 'GET_COMMENTS'
+    comments: comments
+  })
+}
+
 // Async Actions
 
 export const getMessagesFromApi = () => {

@@ -30,5 +30,4 @@ class Api::CommentsController < ApplicationController
       render json: {message: "woops"}, status: 400
     end
   end
-
 end
