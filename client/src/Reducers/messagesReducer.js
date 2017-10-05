@@ -1,3 +1,4 @@
+
 export default function messagesReducer(state = [],action){
   switch(action.type){
     case 'GET_MESSAGES':

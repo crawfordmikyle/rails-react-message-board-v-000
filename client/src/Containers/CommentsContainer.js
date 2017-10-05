@@ -3,7 +3,7 @@ import {connect} from 'react-redux '
 
 class CommentsContainer extends Component {
   constructor(){
-    super();
+
   }
 }
 
