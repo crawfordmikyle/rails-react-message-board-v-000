@@ -1,21 +1,17 @@
 import React, {Component} from 'react'
-import {connect} from 'react-redux'
+import {connect} from 'react-redux '
 
 class CommentsContainer extends Component {
-  constructor({msgID}){
+  constructor(){
     super();
   }
 
-  componentDidMount(){
-    console.log(this.props)
-  }
-
   render(){
-    return(
+    return{
       <div className="comments">
         <h4>Comments</h4>
       </div>
-    )
+    }
   }
 }
 
