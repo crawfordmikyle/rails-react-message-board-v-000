@@ -9,9 +9,10 @@ import { Provider } from 'react-redux';
 import {createStore, applyMiddleware, combineReducers} from 'redux';
 import thunk from 'redux-thunk';
 import messagesReducer from './Reducers/messagesReducer'
-
+import commentsReducer from './Reducers/commentsReducer'
 const rootReducer = combineReducers({
   messages: messagesReducer,
+  comments: commentsReducer,
 });
 
 const middleware = [thunk];

@@ -14,14 +14,22 @@ class CommentListContainer extends Component{
   render(){
     return(
       <div>
-        The Comment Stuff Goes Here
+        {this.props.comments.map((comment)=>{
+          return(
+            <div>
+              {comment.comment_content}
+            </div>
+          )
+        })}
       </div>
     )
   }
 }
 
 const mapStateToProps = (state,ownProps) =>{
-  console.log(state,ownProps)
+  return({
+    comments: state.comments
+  })
 }
 
-export default connect (null,{getCommentsFromApi})(CommentListContainer)
+export default connect (mapStateToProps,{getCommentsFromApi})(CommentListContainer)
