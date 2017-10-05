@@ -23,7 +23,7 @@ class Api::CommentsController < ApplicationController
   def destroy
     message = Message.find_by_id(params[:message_id])
 
-    if comment = message.comments.find_by(id: params[:comment_id])
+    if message && comment = message.comments.find_by(id: params[:comment_id])
       comment.delete
       render json: {message: "comment deleted"}, status: 200
     else
