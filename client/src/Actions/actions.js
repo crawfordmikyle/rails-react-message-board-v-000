@@ -1,4 +1,4 @@
-// Message Action Creators
+// Action Creators
 const getMessages = (messages) => {
   return({
     type:'GET_MESSAGES',
@@ -27,7 +27,7 @@ const deleteMessage = (message) => {
   })
 }
 
-// Message Async Actions
+// Async Actions
 
 export const getMessagesFromApi = () => {
   return dispatch => {
@@ -85,10 +85,4 @@ export const deleteMessageToApi = (messageObj) => {
     .then(message => dispatch(deleteMessage(message)))
     .catch(error => console.log(error))
   }
-}
-
-// Comments Action Creators
-
-const getComments = (message) => {
-
 }
