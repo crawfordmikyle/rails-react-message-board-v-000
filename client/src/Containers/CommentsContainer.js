@@ -1,8 +1,14 @@
 import React, {Component} from 'react'
 import {connect} from 'react-redux'
-import {getMessageComments} from '../Actions/actions'
-class CommentsContainer extends Component {
 
+class CommentsContainer extends Component {
+  constructor({msgID}){
+    super();
+  }
+
+  componentDidMount(){
+    console.log(this.props)
+  }
 
   render(){
     return(
@@ -13,9 +19,4 @@ class CommentsContainer extends Component {
   }
 }
 
-const mapStateToProps = (state,ownProps) => {
-  console.log(state)
-  console.log(ownProps)
-}
-
-export default connect(mapStateToProps,{getMessageComments})(CommentsContainer)
+export default CommentsContainer
