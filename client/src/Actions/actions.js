@@ -89,6 +89,15 @@ export const deleteMessageToApi = (messageObj) => {
 
 // Comments Action Creators
 
-const getComments = (message) => {
+const getComments = (messageComments) => {
+  return({
+    type: 'GET_COMMENTS',
+    comments: messageComments,
+  })
+}
 
+// Comments Async Actions
+
+export const getMessageComments = () => {
+  return dispatch
 }
