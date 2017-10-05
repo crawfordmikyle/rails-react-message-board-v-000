@@ -1,6 +1,7 @@
 import React from 'react'
 import {connect} from 'react-redux'
 import {Link, Route, Switch} from 'react-router-dom'
+import CommentListContainer from '../Containers/CommentListContainer'
 
 const Message = ({message,match}) => {
   return(
@@ -10,6 +11,8 @@ const Message = ({message,match}) => {
       <p>{message.message_content}</p>
       <Link to={`/messages/${message.id}/edit`} className="button">Edit</Link>
       <Link to={`/messages/${message.id}/delete`} className="button">Delete Message</Link>
+      <Link to={`/messages/${message.id}/comments`} className="button">Show Comments</Link>
+      <Route exact path={`/messages/${message.id}/comments`} component={CommentListContainer}/>
     </div>
   )
 }

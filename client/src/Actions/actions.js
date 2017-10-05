@@ -29,8 +29,8 @@ const deleteMessage = (message) => {
 
 const getComments = (comments) => {
   return({
-    type: 'GET_COMMENTS'
-    comments: comments
+    type: 'GET_COMMENTS',
+    comments: comments,
   })
 }
 

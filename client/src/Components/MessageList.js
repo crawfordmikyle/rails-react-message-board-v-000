@@ -21,10 +21,10 @@ const MessageList = ({messages,match}) =>{
       <Link to="/messages/new">New Message</Link>
       <Switch>
         <Route exact path="/messages/new" component={NewMessage}/>
-        <Route exact path="/messages/:id" component={Message}/>
         <Route exact path="/messages/:id/edit" component={EditMessage}/>
         <Route exact path="/messages/:id/delete" component={DeleteMessage}/>
       </Switch>
+      <Route path="/messages/:id" component={Message}/>
     </div>
   )
 }
