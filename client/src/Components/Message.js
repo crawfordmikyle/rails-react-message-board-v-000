@@ -1,6 +1,6 @@
 import React from 'react'
 import {connect} from 'react-redux'
-import {Link} from 'react-router-dom'
+import {BrowserRouter as Router, Link, Route, Switch} from 'react-router-dom'
 import CommentsContainer from '../Containers/CommentsContainer'
 
 const Message = ({message,match}) => {
@@ -9,9 +9,10 @@ const Message = ({message,match}) => {
       <h4>{message.title}</h4>
       <hr/>
       <p>{message.message_content}</p>
+
       <Link to={`/messages/${message.id}/edit`} className="button">Edit</Link>
       <Link to={`/messages/${message.id}/delete`} className="button">Delete Message</Link>
-      <CommentsContainer msgID={message.id} />
+      <Link to={`/messages/${message.id}/comments`}>comments</Link>
     </div>
   )
 }
