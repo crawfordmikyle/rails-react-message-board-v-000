@@ -21,6 +21,14 @@ class Api::CommentsController < ApplicationController
   end
 
   def destroy
-    binding.pry
+    message = Message.find_by_id(params[:message_id])
+
+    if comment = message.comments.find_by(id: params[:comment_id])
+      comment.delete
+      render json: {message: "comment deleted"}, status: 200
+    else
+      render json: {message: "woops"}, status: 400
+    end
   end
+
 end
