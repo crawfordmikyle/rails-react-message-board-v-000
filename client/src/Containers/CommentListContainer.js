@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import {getCommentsFromApi,} from '../Actions/actions'
+import {getCommentsFromApi,addCommentToMessage} from '../Actions/actions'
 
 class CommentListContainer extends Component{
   constructor(){
@@ -21,7 +21,8 @@ class CommentListContainer extends Component{
   }
 
   handleSubmit = (event) => {
-
+    event.preventDefault();
+    this.props.addCommentToMessage(this.state,this.props.msgId)
   }
 
   render(){
@@ -34,7 +35,7 @@ class CommentListContainer extends Component{
         </form>
         {this.props.comments.map((comment)=>{
           return(
-            <div>
+            <div key={comment.id}>
               {comment.comment_content}
             </div>
           )
@@ -50,4 +51,4 @@ const mapStateToProps = (state,ownProps) =>{
   })
 }
 
-export default connect (mapStateToProps,{getCommentsFromApi})(CommentListContainer)
+export default connect (mapStateToProps,{getCommentsFromApi,addCommentToMessage})(CommentListContainer)

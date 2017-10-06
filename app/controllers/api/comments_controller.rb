@@ -10,6 +10,7 @@ class Api::CommentsController < ApplicationController
   end
 
   def create
+    puts params
     message = Message.find_by_id(params[:message_id])
     if message.comments.create({comment_content: params[:comment_content]})
       render json: message.comments, status: 200

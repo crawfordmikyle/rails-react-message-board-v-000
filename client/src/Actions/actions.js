@@ -54,9 +54,15 @@ export const getCommentsFromApi = (messageId) => {
   }
 }
 
-export const addCommentToMessage = (messageId,comment) => {
+export const addCommentToMessage = (comment,messageId) => {
   return dispatch => {
-    return fetch(`/api/messages/${messageId}/comments/${comment.id}`)
+    return fetch(`/api/messages/${messageId}/comments`,{
+      method: 'POST',
+      headers: {
+        'Content-Type':'application/json'
+      },
+      body: JSON.stringify({comment: comment})
+    })
       .then(responce => responce.json())
       .then(comment => dispatch(addComment(comment)))
       .catch(error => console.log(error))
