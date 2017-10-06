@@ -35,6 +35,13 @@ const getComments = (comments) => {
   })
 }
 
+const addComment = (comment) => {
+  return({
+    type: 'ADD_COMMENT',
+    comment: comment,
+  })
+}
+
 // Async Actions
 
 //Comment Async Actions
@@ -48,8 +55,11 @@ export const getCommentsFromApi = (messageId) => {
 }
 
 export const addCommentToMessage = (messageId,comment) => {
-  return dispatch {
-    return
+  return dispatch => {
+    return fetch(`/api/messages/${messageId}/comments/${comment.id}`)
+      .then(responce => responce.json())
+      .then(comment => dispatch(addComment(comment)))
+      .catch(error => console.log(error))
   }
 }
 
