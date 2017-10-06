@@ -96,7 +96,6 @@ export const addMessagesToApi = (messageObj) => {
 
 export const editMessageToApi = (messageObj) => {
     const messageUrl = `/api/messages/${messageObj.id}`
-    console.log(messageUrl)
     return dispatch => {
       return fetch(messageUrl,{
         method: 'PUT',

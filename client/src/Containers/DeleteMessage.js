@@ -15,7 +15,7 @@ class DeleteMessage extends Component {
 
   render(){
     return(
-      <div>
+      <div className="message">
         <h4>Delete Message</h4>
         <h5>Are You Sure?</h5>
         <form onSubmit={(event)=>this.handleSubmit(event)}>
