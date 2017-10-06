@@ -27,8 +27,8 @@ class CommentListContainer extends Component{
 
   render(){
     return(
-      <div className="message">
-        <form onSubmit={(event) => this.handleSubmit(event)}>
+      <div>
+        <form onSubmit={(event) => this.handleSubmit(event)} className="message">
           <h4>Comment</h4>
           <input id="comment_content" type="text" value={this.state.comment_content} onChange={(event) => this.handleOnChange(event)}/>
           <input type="submit"/>
