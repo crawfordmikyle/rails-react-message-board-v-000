@@ -11,8 +11,8 @@ class Api::CommentsController < ApplicationController
 
   def create
     message = Message.find_by_id(params[:message_id])
-    if message.comments.create(comment_params)
-      render json: message.comments, status: 200
+    if comment = message.comments.create(comment_params)
+      render json: comment, status: 200
     else
       render json: {message: "oops something is wrong"}, status: 400
     end
