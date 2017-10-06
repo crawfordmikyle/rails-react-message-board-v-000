@@ -47,10 +47,10 @@ export const getCommentsFromApi = (messageId) => {
   }
 }
 
-export const addCommentToMessage = (comment) => {
-  return({
-    type:'ADD_COMMENT'
-  })
+export const addCommentToMessage = (messageId,comment) => {
+  return dispatch {
+    return
+  }
 }
 
 // Message Async Actions

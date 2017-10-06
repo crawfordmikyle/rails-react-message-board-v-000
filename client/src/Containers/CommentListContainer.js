@@ -1,6 +1,6 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import {getCommentsFromApi} from '../Actions/actions'
+import {getCommentsFromApi,} from '../Actions/actions'
 
 class CommentListContainer extends Component{
   constructor(){
