@@ -28,9 +28,9 @@
 }
 
 .message{
--webkit-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
--moz-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.75);
+-webkit-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.60);
+-moz-box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.60);
+box-shadow: 7px 0px 21px 13px rgba(0,0,0,0.60);
 }
 
 .header-img{
