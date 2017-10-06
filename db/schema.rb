@@ -14,14 +14,14 @@ ActiveRecord::Schema.define(version: 20171005200656) do
 
   create_table "comments", force: :cascade do |t|
     t.integer "message_id"
-    t.string "comment_content"
+    t.text "comment_content"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
   end
 
   create_table "messages", force: :cascade do |t|
     t.string "title"
-    t.string "message_content"
+    t.text "message_content"
     t.integer "user_id"
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false

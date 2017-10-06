@@ -35,7 +35,7 @@ class CommentListContainer extends Component{
         </form>
         {this.props.comments.map((comment)=>{
           return(
-            <div key={comment.id}>
+            <div key={comment.id} className="message">
               {comment.comment_content}
             </div>
           )
