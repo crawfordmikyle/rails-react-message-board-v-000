@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {getCommentsFromApi,addCommentToMessage} from '../Actions/actions'
+import NewComment from './NewComment'
 
 class CommentListContainer extends Component{
   constructor(){
@@ -28,11 +29,7 @@ class CommentListContainer extends Component{
   render(){
     return(
       <div>
-        <form onSubmit={(event) => this.handleSubmit(event)} className="message">
-          <h4>Comment</h4>
-          <input id="comment_content" type="text" value={this.state.comment_content} onChange={(event) => this.handleOnChange(event)}/>
-          <input type="submit"/>
-        </form>
+        <NewComment/>
         {this.props.comments.map((comment)=>{
           return(
             <div key={comment.id} className="message">
