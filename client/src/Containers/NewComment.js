@@ -34,10 +34,4 @@ class NewComment extends Component {
   }
 }
 
-const mapStateToProps = (state,ownProps) => {
-  return({
-
-  })
-}
-
 export default connect(null,{addCommentToMessage})(NewComment)

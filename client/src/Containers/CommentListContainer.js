@@ -1,6 +1,7 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
 import {getCommentsFromApi,addCommentToMessage} from '../Actions/actions'
+import CommentCard from '../Components/CommentCard'
 import NewComment from './NewComment'
 
 class CommentListContainer extends Component{
@@ -32,9 +33,7 @@ class CommentListContainer extends Component{
         <NewComment msgId={this.props.msgId}/>
         {this.props.comments.map((comment)=>{
           return(
-            <div key={comment.id} className="message">
-              {comment.comment_content}
-            </div>
+            <CommentCard comment={comment}/>
           )
         })}
       </div>
