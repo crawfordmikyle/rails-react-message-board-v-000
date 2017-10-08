@@ -29,7 +29,7 @@ class CommentListContainer extends Component{
   render(){
     return(
       <div>
-        <NewComment/>
+        <NewComment msgId={this.props.msgId}/>
         {this.props.comments.map((comment)=>{
           return(
             <div key={comment.id} className="message">

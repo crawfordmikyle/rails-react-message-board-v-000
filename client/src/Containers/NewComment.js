@@ -1,4 +1,6 @@
 import React,{Component} from 'react'
+import {connect} from 'react-redux'
+import {addCommentToMessage} from '../Actions/actions'
 
 class NewComment extends Component {
   constructor(){
@@ -32,4 +34,10 @@ class NewComment extends Component {
   }
 }
 
-export default NewComment
+const mapStateToProps = (state,ownProps) => {
+  return({
+
+  })
+}
+
+export default connect(null,{addCommentToMessage})(NewComment)
