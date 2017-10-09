@@ -1,30 +1,13 @@
 import React,{Component} from 'react'
 import {connect} from 'react-redux'
-import {getCommentsFromApi,addCommentToMessage} from '../Actions/actions'
+import {getCommentsFromApi} from '../Actions/actions'
 import CommentCard from '../Components/CommentCard'
 import NewComment from './NewComment'
 
 class CommentListContainer extends Component{
-  constructor(){
-    super();
-    this.state = {
-      comment_content: ''
-    }
-  }
 
   componentDidMount(){
     this.props.getCommentsFromApi(this.props.msgId)
-  }
-
-  handleOnChange = (event) => {
-    this.setState({
-      [event.target.id]:event.target.value
-    })
-  }
-
-  handleSubmit = (event) => {
-    event.preventDefault();
-    this.props.addCommentToMessage(this.state,this.props.msgId)
   }
 
   render(){
@@ -33,7 +16,7 @@ class CommentListContainer extends Component{
         <NewComment msgId={this.props.msgId}/>
         {this.props.comments.map((comment)=>{
           return(
-            <CommentCard comment={comment}/>
+            <CommentCard comment={comment} key={comment.id}/>
           )
         })}
       </div>
@@ -47,4 +30,4 @@ const mapStateToProps = (state,ownProps) =>{
   })
 }
 
-export default connect (mapStateToProps,{getCommentsFromApi,addCommentToMessage})(CommentListContainer)
+export default connect (mapStateToProps,{getCommentsFromApi})(CommentListContainer)
