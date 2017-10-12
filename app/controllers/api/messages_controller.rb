@@ -1,4 +1,3 @@
-require 'pry'
 class Api::MessagesController < ApplicationController
 
   def index

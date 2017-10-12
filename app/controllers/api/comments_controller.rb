@@ -1,4 +1,3 @@
-require 'pry'
 class Api::CommentsController < ApplicationController
   def show
     message = Message.find_by_id(params[:message_id])

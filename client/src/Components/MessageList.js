@@ -2,7 +2,7 @@ import React from 'react'
 import {Link, Route, Switch} from 'react-router-dom'
 import Message from './Message'
 import NewMessage from '../Containers/NewMessage'
-import MessageListCard from './MessageListCard'
+import MessageListCard from '../Containers/MessageListCard'
 
 const MessageList = ({messages,match}) =>{
   const renderedMessages = messages.map((message)=>{
