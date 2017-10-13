@@ -30,9 +30,10 @@ class MessageListCard extends Component {
         title:{this.props.messageData.title}
       <br/>
         <Link to={`/messages/${this.props.messageData.id}`} >See More</Link>
+        <br/>
         <button onClick={this.handleOnClick}>Like</button>
+        <br/>
         <p>Likes {this.state.likes}</p>
-        <button onClick={this.callApi}>Call Api</button>
       </div>
     )
   }
