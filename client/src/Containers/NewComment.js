@@ -24,9 +24,9 @@ class NewComment extends Component {
   render(){
     return(
       <div>
-        <form onSubmit={(event) => this.handleSubmit(event)} className="message">
+        <form onSubmit={this.handleSubmit} className="message">
           <h4>Comment</h4>
-          <input id="comment_content" type="text" value={this.state.comment_content} onChange={(event) => this.handleOnChange(event)}/>
+          <input id="comment_content" type="text" value={this.state.comment_content} onChange={this.handleOnChange}/>
           <input type="submit"/>
         </form>
       </div>

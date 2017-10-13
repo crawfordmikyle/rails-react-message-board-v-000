@@ -32,15 +32,15 @@ class NewMessage extends Component {
     return(
       <div className="row message">
         <h4>New Message</h4>
-        <form onSubmit={(event)=>this.handleOnSubmit(event)}>
+        <form onSubmit={this.handleOnSubmit}>
           <label>Name:</label>
-          <input type="text" id="user_name" value={this.state.user_name} onChange={(event)=>this.handleOnChange(event)}/>
+          <input type="text" id="user_name" value={this.state.user_name} onChange={this.handleOnChange}/>
           <br/>
           <label>Title:</label>
-          <input type="text" id="title" value={this.state.title} onChange={(event)=>this.handleOnChange(event)}/>
+          <input type="text" id="title" value={this.state.title} onChange={this.handleOnChange}/>
           <br/>
           <label>Message:</label>
-          <textarea id="message_content" value={this.state.message_content} onChange={(event)=>this.handleOnChange(event)}></textarea>
+          <textarea id="message_content" value={this.state.message_content} onChange={this.handleOnChange}></textarea>
           <br/>
           <input type="submit"/>
         </form>
