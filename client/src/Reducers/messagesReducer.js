@@ -12,6 +12,14 @@ export default function messagesReducer(state = [],action){
           return m
         }
       })
+    case 'ADD_LIKE':
+      return state.map((m)=>{
+        if (m.id === action.message.id){
+          return action.message
+        }else{
+          return m
+        }
+      })
     case 'DELETE_MESSAGE':
       return state.filter((m)=>{return m.id !== action.message.id})
     default:

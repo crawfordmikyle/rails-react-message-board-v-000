@@ -43,7 +43,7 @@ class Api::MessagesController < ApplicationController
 private
 
   def message_params
-    params.require(:message).permit(:title,:message_content,:likes)
+    params.require(:message).permit(:user_id,:id,:title,:message_content,:likes)
   end
 
   def set_message

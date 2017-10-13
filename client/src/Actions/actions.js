@@ -42,7 +42,35 @@ const addComment = (comment) => {
   })
 }
 
+// Message Like Actions
+
+const addLikes = (message) => {
+  return({
+    type: 'ADD_LIKE',
+    message: message,
+  })
+}
+
 // Async Actions
+
+// Message Like Async Actions
+
+export const addLikeToMessageToApi = (messageObj) => {
+    const messageUrl = `/api/messages/${messageObj.id}`
+    console.log(messageUrl)
+    return dispatch => {
+      return fetch(messageUrl,{
+        method: 'PUT',
+        headers: {
+          'Content-Type':'application/json'
+      },
+      body: JSON.stringify({message: messageObj})
+    })
+    .then(responce => responce.json())
+    .then(message => dispatch(addLikes(message)))
+    .catch(error => console.log(error))
+  }
+}
 
 //Comment Async Actions
 export const getCommentsFromApi = (messageId) => {
