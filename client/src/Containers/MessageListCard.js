@@ -4,16 +4,6 @@ import {Link} from 'react-router-dom'
 import {addLikeToMessageToApi} from '../Actions/actions'
 
 class MessageListCard extends Component {
-	constructor({message}){
-  super();
-	this.state = {
-    id: message.id,
-    user_id: message.user_id,
-    title: message.title,
-    message_content: message.message_content,
-    likes: message.likes,
-    }
-	}
 
   handleOnClick = () => {
     this.props.addLikeToMessageToApi(this.props.message)
