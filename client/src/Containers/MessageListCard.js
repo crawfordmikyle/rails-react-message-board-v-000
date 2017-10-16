@@ -16,12 +16,7 @@ class MessageListCard extends Component {
 	}
 
   handleOnClick = () => {
-    let newCount = this.state.likes + 1
-    this.setState({
-      likes: newCount,
-    },function(){
-      this.props.addLikeToMessageToApi(this.state)
-    })
+    this.props.addLikeToMessageToApi(this.props.message)
   }
 
   render(){
