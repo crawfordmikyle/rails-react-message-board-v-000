@@ -26,14 +26,14 @@ class MessageListCard extends Component {
 
   render(){
     return(
-      <div key={this.props.messageData.id} className="message">
-        title:{this.props.messageData.title}
+      <div key={this.props.message.id} className="message">
+        title:{this.props.message.title}
       <br/>
-        <Link to={`/messages/${this.props.messageData.id}`} >See More</Link>
+        <Link to={`/messages/${this.props.message.id}`} >See More</Link>
         <br/>
         <button onClick={this.handleOnClick}>Like</button>
         <br/>
-        <p>Likes {this.state.likes}</p>
+        <p>Likes {this.props.message.likes}</p>
       </div>
     )
   }
