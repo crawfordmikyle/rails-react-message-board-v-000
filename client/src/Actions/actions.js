@@ -58,7 +58,6 @@ const addLikes = (message) => {
 export const addLikeToMessageToApi = (messageObj) => {
     const messageUrl = `/api/messages/${messageObj.id}`
     messageObj.likes += 1
-    console.log(messageUrl)
     return dispatch => {
       return fetch(messageUrl,{
         method: 'PUT',

@@ -9,7 +9,7 @@ const MessageList = ({messages,match}) =>{
     return(
       <MessageListCard messageData={message} key={message.id}/>
     )
-  })
+  }) 
   return(
     <div>
       <h4>Messages</h4>
